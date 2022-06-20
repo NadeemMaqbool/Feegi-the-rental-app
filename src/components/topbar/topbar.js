@@ -8,10 +8,11 @@ const Topbar = () => {
     <div className="topbarContainer">
       <div className="topbarWrapper">
         <div className="topbarLogo">
-          meRenter
+          SpaceRent
         </div>
         <div className="topbarCenter">
-          Hello Nadeem 
+          <div className="topbarUserInfo">Hello Muhammad Nadeem</div> 
+          <div className="topbarDateInfo">Today, 23 Nov 2022</div> 
         </div>
         <div className="topbarSettings">
           <div className="topbarIcon">
