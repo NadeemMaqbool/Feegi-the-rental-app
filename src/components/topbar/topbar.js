@@ -2,6 +2,7 @@ import React from 'react'
 import "./topbar.css"
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import { Link } from 'react-router-dom'
 
 const Topbar = () => {
   return (
@@ -9,7 +10,10 @@ const Topbar = () => {
       <div className="topbarWrapper">
         <div className="topbarLogo">
           <span className="logo"> 
+           <Link exact to="/">
            <img src={require('../../images/logo.png')} alt="Inside Rent" />
+
+           </Link>
           </span>
         </div>
         <div className="topbarCenter">
