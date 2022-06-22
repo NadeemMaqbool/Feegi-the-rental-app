@@ -4,12 +4,11 @@
     top:0;
     z-index: 999;
     position: sticky;
-    background-color: #ffffff;
+    background-color: #ffffff;  
 }   
 
 .topbarWrapper {
     height: 100%;
-    padding: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,22 +16,24 @@
 .topbarSettings {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .topbarCenter  {
     display: flex;
     align-items: center;
     width:400px;
-    flex: 4;
+    margin-left:10px;
 }
 .topbarUserInfo {
     font-size:18px;
-    color: var(--dark-black) !important;
+    color: var(--text-color) !important;
     margin-right: 10px;
+    font-weight: 600;
 }
 .topbarDateInfo {
     width:35%; 
-    font-size:16px;
+    font-size:12px;
     margin-top:2px;
     color: var(--light-black) !important    
 }
@@ -41,14 +42,18 @@
     cursor: pointer;
     margin-right: 10px;
     color: #555;
+    
 }
 
 .topbarLogo {
     color: var(--dark-black);
     font-weight: 600 !important;
     font-size: 26px;
-    flex: 1;
-    background-color: var(--white) !important;
+    padding: 13px 0px;
+}
+.logo {
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 .topbarProfile {

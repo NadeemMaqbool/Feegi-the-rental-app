@@ -1,0 +1,7 @@
+.contentContainer {
+    flex: 4;
+    padding: 20px;
+    background-color: #F6F6FA;
+    border-top-left-radius: 20px;
+    min-width: 600px;
+}
