@@ -1,3 +1,6 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+
 export const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'firstName', headerName: 'First name', width: 130 },
@@ -17,6 +20,19 @@ export const columns = [
       valueGetter: (params) =>
         `${params.row.firstName || ''} ${params.row.lastName || ''}`,
     },
+    {
+        field: 'actions',
+        headerName: 'Actions',
+        width: '150',
+        renderCell: (params) => {
+            return(
+                <div className="actionBtns">
+                    <BorderColorIcon className="actionBtnEdit"/>
+                    <DeleteIcon className="actionBtnDelete"/>
+                </div>
+            )
+        }
+    }
   ];
   
   export const rows = [

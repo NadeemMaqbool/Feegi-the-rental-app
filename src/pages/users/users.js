@@ -18,13 +18,14 @@ const User = () => {
             <DeleteOutlineIcon />
           </button>
         </div>
-        <div className="userWrapper" style={{ height: '100%', width: '100%' }}>
+        <div className="userWrapper" style={{ height: '533px', width: '100%' }}>
         <DataGrid
           rows={rows}
           columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
+          pageSize={8}
           checkboxSelection
+          rowsPerPageOptions={[5, 10, 20]}
+          pagination
         />
         </div>
     </div>

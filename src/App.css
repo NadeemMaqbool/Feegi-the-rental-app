@@ -6,6 +6,7 @@ body {
     --light-text-color: #5f6368;
     --new-item-btn-bg : #14bdad;
     --delete-item-btn-bg: #CF584A;
+    --edit-item-btn-bg: #F9D37C;
 }
 
 .container {
@@ -41,4 +42,24 @@ body {
 
 .addCircleIcon {
     margin-left: 5px;
+}
+.actionBtns {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.actionBtnEdit {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    padding:10px;
+    color: var(--edit-item-btn-bg);
+    cursor: pointer;
+}
+.actionBtnDelete {
+    width: 100px;
+    height: 100px;
+    padding:10px;
+    color: var(--delete-item-btn-bg);
+    cursor: pointer;
 }
