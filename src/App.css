@@ -7,6 +7,7 @@ body {
     --new-item-btn-bg : #14bdad;
     --delete-item-btn-bg: #CF584A;
     --edit-item-btn-bg: #F9D37C;
+    --text-field-border-color: #afadad;
 }
 
 .container {
@@ -62,4 +63,7 @@ body {
     padding:10px;
     color: var(--delete-item-btn-bg);
     cursor: pointer;
+}
+.link {
+    text-decoration: none;
 }
