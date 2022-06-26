@@ -1,0 +1,13 @@
+.userContainer {
+    flex: 4;
+    padding: 20px;
+    min-width: 600px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:30px;
+    margin-bottom:20px
+}

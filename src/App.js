@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Topbar from './components/topbar/topbar.js'
 import Sidebar from './components/sidebar/sidebar.js'
-import User from './components/user/user.js'
+import User from './pages/users/users.js'
 import Dashboard from './components/dashboard/dashboard.js'
 import Content from './components/content/content.js'
 import Reporting from './components/reporting/reporting.js'

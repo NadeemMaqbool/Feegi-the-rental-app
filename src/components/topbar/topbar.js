@@ -10,7 +10,7 @@ const Topbar = () => {
       <div className="topbarWrapper">
         <div className="topbarLogo">
           <span className="logo"> 
-           <Link exact to="/">
+           <Link to="/">
            <img src={require('../../images/logo.png')} alt="Inside Rent" />
 
            </Link>
