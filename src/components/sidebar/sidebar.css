@@ -1,7 +1,7 @@
 .sidebarContainer {
     height: calc(100vh - 60px);
     flex: 1;
-    background-color: #F9FAFA;
+    background-color: #ffffff;
 }
 
 .sidebarOptions {
@@ -14,13 +14,15 @@
 }
 
 .sidebarListItems {
-    margin-top:5px;
+    margin-top:8px;
     padding:5px;
-    color: var(--light-text-color);
+    color: var(--dark-black);
     display: flex;
     align-items: center;
     cursor: pointer;
-    text-decoration: none;;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .menuIcon {

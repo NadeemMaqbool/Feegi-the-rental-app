@@ -1,13 +1,14 @@
 body {
-    --white: #FBFCFC;
-    --dark-black: #212F3D;
-    --light-black: #5a5a5b;
-    --text-color: #646466;
-    --light-text-color: #5f6368;
+    --white: #f8f9fa;
+    --dark-black: #343a40;
+    --light-black: #495057;
+    --text-color: #495057;
+    --light-text-color: #6c757d;
     --new-item-btn-bg : #14bdad;
     --delete-item-btn-bg: #CF584A;
     --edit-item-btn-bg: #F9D37C;
-    --text-field-border-color: #afadad;
+    --text-field-border-color: #adb5bd;
+    --topbar-bg: #f8f9fa
 }
 
 .container {

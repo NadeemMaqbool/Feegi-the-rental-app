@@ -1,0 +1,50 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+.animation-text-loader {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > span {
+    display : inline-block;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: blue;
+    border: 1px solid blue;
+    transform: translate3d(0);
+    animation: bounce 0.6s infinite alternate;
+}
+
+.loader > span:nth-child(2) {
+    background-color:yellow;
+    border: 1px solid yellow;
+    animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+    background-color: #ca09aa;
+    border: 1px solid #ca09aa;
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    to {
+        width:20px;
+        height:20px;
+        transform: translate3d(0, 0px, 0)
+    }
+}

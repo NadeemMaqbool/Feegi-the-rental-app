@@ -11,7 +11,7 @@ const Topbar = () => {
         <div className="topbarLogo">
           <span className="logo"> 
            <Link to="/">
-           <img src={require('../../images/logo.png')} alt="Inside Rent" />
+           <img src={require('../../images/logo-final.png')} alt="Inside Rent" className="logoImg"/>
 
            </Link>
           </span>

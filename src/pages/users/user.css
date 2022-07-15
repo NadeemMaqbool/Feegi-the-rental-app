@@ -1,8 +1,15 @@
-.userContainer {
+.container {
     flex: 4;
+    padding: 0px 40px;
+    background-color: #f8f9fa;
+}
+.userContainer {
+    background-color: #fff;
     padding: 20px;
-    min-width: 600px;
+    margin-top:40px;
+    min-width: 100%;
     min-height: 100% !important;
+    border-radius: 20px;
 }
 
 .header {
