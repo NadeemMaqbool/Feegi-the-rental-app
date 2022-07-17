@@ -8,7 +8,10 @@ body {
     --delete-item-btn-bg: #CF584A;
     --edit-item-btn-bg: #F9D37C;
     --text-field-border-color: #adb5bd;
-    --topbar-bg: #f8f9fa
+    --topbar-bg: #f8f9fa;
+    --menu-item-color: #6d7080;
+    --add-new-button: #5596f7;
+    --icon-color: #7B7B83;
 }
 
 .container {
@@ -26,9 +29,19 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-    text-transform: uppercase;
 }
 
+.btn-general {
+    padding: 5px 10px;
+    background-color: var(--add-new-button);
+    border: 1px solid var(--add-new-button);
+    color: var(--white);
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
 .deleteMultiBtn {
     padding: 5px 10px;
     background-color: var(--white);
@@ -40,6 +53,18 @@ body {
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+.btn-danger {
+    padding: 5px 10px;
+    background-color: var(--delete-item-btn-bg);
+    border: 1px solid var(--delete-item-btn-bg);
+    color: var(--white);
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .addCircleIcon {
@@ -68,3 +93,45 @@ body {
 .link {
     text-decoration: none;
 }
+
+.MuiCheckbox-root svg {
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    border: 1px solid #d9d9d9;
+    border-radius: 2;
+  }
+
+  .MuiCheckbox-root svg path {
+    display: none;
+    font-size: 1.0rem !important;
+  }
+  .MuiCheckbox-root.Mui-checked:not(.MuiCheckbox-indeterminate) svg {
+    background-color: #6ab1f3;
+    border-color: #6ab1f3;
+  }
+
+  .MuiCheckbox-root.Mui-checked .MuiIconButton-label:after {
+    position: absolute;
+    display: table;
+    border: 2px solid #fff;
+    border-top: 0px;
+    border-left: 0px;
+    transform: rotate(45deg) translate(-50%,-50%);
+    opacity: 1;
+    transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+    content: "";
+    top: 50%;
+    left: 39%;
+    width: 5.71428571;
+    height: 9.14285714;
+  }
+  
+  .MuiCheckbox-root.MuiCheckbox-indeterminate .MuiIconButton-label:after {
+    width: 8px;
+    height: 8px;
+    background-color: #1890ff;
+    transform: none;
+    top: 39%;
+    border: 0px;
+  }

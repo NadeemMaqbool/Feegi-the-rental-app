@@ -11,22 +11,22 @@ const User = () => {
     <div className="container">
         <div className="userContainer">
           <div className="header">
-            <Link to="/users/new" className="addUserBtn link">
+            <Link to="/users/new" className="btn-general link">
               Add User
               <AddCircleOutlineIcon className="addCircleIcon"/>
             </Link>
-            <button className="deleteMultiBtn"> 
+            <button className="btn-danger"> 
               Delete
               <DeleteOutlineIcon />
             </button>
           </div>
-          <div className="userWrapper" style={{ height: '100%', width: '100%' }}>
+          <div className="userWrapper" style={{ height: '92%', width: '100%' }}>
             <DataGrid
               rows={rows}
               columns={columns}
-              pageSize={18}
+              pageSize={12}
               checkboxSelection
-              rowsPerPageOptions={[16]}
+              rowsPerPageOptions={[10]}
               pagination
             />
           </div>

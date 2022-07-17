@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
 import "./topbar.css"
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
-import { Link } from 'react-router-dom'
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { AuthContext } from '../../context/auth-context'
+
+import { Link, useNavigate } from 'react-router-dom'
 
 const Topbar = () => {
+  const context = useContext(AuthContext)
+  let navigate = useNavigate();
+
+  const logoutHandler = () => {
+    context.logout()
+    navigate("/login", { replace: true });
+  }
+
   return (
     <div className="topbarContainer">
       <div className="topbarWrapper">
@@ -26,8 +40,31 @@ const Topbar = () => {
             <div className="topbarIcon">
               <NotificationsNoneIcon />
             </div>
-            <img className="topbarProfile" src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=''/>
-            
+            <div className="profile">
+              <img 
+                className="topbarProfile" 
+                src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=200" 
+                alt=''
+              />
+              <div className="profile-dropdown">
+                <p className="welcome">
+                  welcome Nadeem!
+                </p>
+                <div className="menuItem">
+                  <PermIdentityIcon htmlColor="#495057"/>
+                  <a>Profile</a>
+                </div>
+                <div className="menuItem">
+                  <SettingsOutlinedIcon htmlColor="#495057" style={{fontSize:16}} />
+                  <a>Settings</a>
+                </div>
+                <div className="menuItem">
+                  <LogoutOutlinedIcon className="topBarIcon"/>
+                  <a onClick={() =>logoutHandler()}>Logout</a>
+                </div>
+                
+              </div> 
+            </div>
           </div>
         </div>
       </div>

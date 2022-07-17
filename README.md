@@ -1,3 +1,4 @@
 ### TODO
 
-Add validations to login 
+Populate top bar with user real data.
+Start working on Profile page

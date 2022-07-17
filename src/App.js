@@ -1,10 +1,10 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { AuthContext } from './context/auth-context';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 import Topbar from './components/topbar/topbar.js'
 import Sidebar from './components/sidebar/sidebar.js'
@@ -18,17 +18,38 @@ import Reporting from './components/reporting/reporting.js'
 import AnimationLoader from './utils/loader/animationLoader.js';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState(null);
+  const [userId, setUserId] = useState(false);
+
   let routes;
-  const login = () => {
-    setIsLoggedIn(true);
-  }
+  
+  const login = useCallback((uuid, token) => {
+      if (!token) {
+        const storedData = localStorage.getItem('userData')
+        setToken(storedData.token)
+      } else {
+        setToken(token);
+        localStorage.setItem('userData', JSON.stringify({userId: uuid, token: token}));
+        setUserId(uuid);
 
-  const logout = () => {
-    setIsLoggedIn(false);
-  }
+        console.log('token', token)
+      }
+  }, []);
 
-  if (isLoggedIn) {
+  const logout = useCallback(() => {
+    setToken(null);
+    setUserId(null);
+    localStorage.removeItem('userData')
+  }, []);
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userData'))
+    if (storedData) {
+      login(storedData.userId, storedData.token)
+    }
+  },[login])
+  
+  if (token) {
     routes = (
         <div>
           <Topbar />
@@ -40,6 +61,7 @@ function App() {
                 <Route path="/users" element={ <User />} />
                 <Route exact path="/users/new" element={ <General /> } />
                 <Route path="/reports" element={ <Reporting /> } />
+                <Route index to="/users" element={ <User />} />
             </Routes>
           </div>
         </div>
@@ -51,12 +73,13 @@ function App() {
           <Route exact path="/signup" element={ <Signup />} />
           <Route exact path="/login" element={ <Login />} />
           <Route exact path="/animate" element={ <AnimationLoader />} />
+          <Route index to="/login" element={ <Login />} />
         </Routes>
       </div>
     )
   }
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn: !!token, token:token, userId:userId, login:login, logout:logout }}>
       <Router>
           <main>{routes}</main>
       </Router>

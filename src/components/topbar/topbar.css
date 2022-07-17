@@ -5,10 +5,7 @@
     z-index: 999;
     position: sticky;
     background-color: var(--topbar-bg);
-    
-    box-shadow: -8px 18px 38px -25px rgba(0,0,0,0.75);
-    -webkit-box-shadow: -8px 18px 38px -25px rgba(0,0,0,0.75);
-    -moz-box-shadow: -8px 18px 38px -25px rgba(0,0,0,0.75);
+    filter: drop-shadow(0px 2px 2px #909090);
 }   
 
 .topbarWrapper {
@@ -65,10 +62,73 @@
     height: 30%;
 }
 
+.profile {
+    position:relative;
+    display:inline-block;
+}
 .topbarProfile {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
     background-color: var(--light-black) !important;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px var(--topbar-bg);
+    z-index: 1;
+    right:0;
+    top:45px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 6px 22px -7px rgba(0,0,0,0.84); 
+    box-shadow: 2px 6px 22px -7px rgba(0,0,0,0.84);
+  }
+  
+.profile-dropdown a {
+    color: var(--light-black);
+    padding: 8px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-align:left;
+    font-size: 15px;
+    font-weight: 400;
+}
+  
+.profile-dropdown a:first-child {
+    margin-top: 50px
+}
+  
+.profile-dropdown a:hover {
+    background-color: var(--topbar-bg);
+    cursor: pointer;
+}
+    
+.profile-dropdown a:hover {
+    background-color: var(--topbar-bg);
+    cursor: pointer;
+}  
+  
+.profile:hover .profile-dropdown {
+    display: block;
+}
+
+.profile-dropdown .welcome {
+    padding: 20px 10px 10px 10px;
+    font-size:14px;
+    color: var(--light-black);
+}
+
+.menuItem {
+    padding:0px 9px;
+    display: flex;
+    align-items: center;
+}
+
+.topBarIcon {
+    color: var(--icon-color);
 }

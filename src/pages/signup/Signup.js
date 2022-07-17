@@ -54,7 +54,7 @@ const Signup = () => {
                 console.log(data, 'Errors:', errors)
 
             try {
-                await fetch('http://localhost:5000/api/users', {
+                await fetch('http://localhost:5000/api/auth/signup', {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/auth-context'
 import './login.css'
 
@@ -7,7 +7,8 @@ const Login = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [error, setError] = useState('');
     const context = useContext(AuthContext);
-
+    let navigate = useNavigate();
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
@@ -19,18 +20,19 @@ const Login = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
             },
             body: JSON.stringify(data)
         }).then(response => {
             return response.json();
         }).then(responseData => {
-            if (!responseData.ok) {
-                console.log(responseData.message);
-                setError(responseData.message);
+            if (!responseData.token) {
+                setError(responseData.message)        
+                return
             }
             setIsLogin(true);
-            context.login()
+            context.login(responseData.user.uuid, responseData.token)
+            navigate("/dashboard", { replace: true });
         }).catch(err => {
             console.error('Post form error: ', err)
             setError(err);

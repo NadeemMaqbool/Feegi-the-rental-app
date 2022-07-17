@@ -1,15 +1,17 @@
 .container {
-    flex: 4;
+    flex: 5 ;
     padding: 0px 40px;
     background-color: #f8f9fa;
+    
 }
 .userContainer {
     background-color: #fff;
     padding: 20px;
-    margin-top:40px;
+    margin-top:20px;
     min-width: 100%;
-    min-height: 100% !important;
+    min-height: 90% !important;
     border-radius: 20px;
+    filter: drop-shadow(0px 2px 1px #c1c1c1);
 }
 
 .header {
