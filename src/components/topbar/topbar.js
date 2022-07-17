@@ -51,11 +51,11 @@ const Topbar = () => {
                   welcome Nadeem!
                 </p>
                 <div className="menuItem">
-                  <PermIdentityIcon htmlColor="#495057"/>
+                  <PermIdentityIcon className="topBarIcon"/>
                   <a>Profile</a>
                 </div>
                 <div className="menuItem">
-                  <SettingsOutlinedIcon htmlColor="#495057" style={{fontSize:16}} />
+                  <SettingsOutlinedIcon className="topBarIcon" />
                   <a>Settings</a>
                 </div>
                 <div className="menuItem">
