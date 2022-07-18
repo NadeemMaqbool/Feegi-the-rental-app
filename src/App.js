@@ -31,8 +31,6 @@ function App() {
         setToken(token);
         localStorage.setItem('userData', JSON.stringify({userId: uuid, token: token}));
         setUserId(uuid);
-
-        console.log('token', token)
       }
   }, []);
 

@@ -1,5 +1,4 @@
 # Frontend - feegi the rental
 
-First Change the font family exlore ''
-Populate top bar with user real data.
+Fix date with some date library like moment
 Start working on Profile page

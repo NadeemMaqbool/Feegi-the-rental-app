@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import "./topbar.css"
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -9,9 +9,13 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { AuthContext } from '../../context/auth-context'
 
 import { Link, useNavigate } from 'react-router-dom'
+import { SimpleConsoleLogger } from 'typeorm';
 
 const Topbar = () => {
+  const [loggedInUser, setloggedInUser] = useState(false)
+
   const context = useContext(AuthContext)
+  
   let navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -19,6 +23,23 @@ const Topbar = () => {
     navigate("/login", { replace: true });
   }
 
+  useEffect( () =>{
+    fetch('http://localhost:5000/api/users/'+context.userId , {
+      method: 'GET',
+      headers: {
+        Authentication: 'Bearer ' + context.token
+      }
+   }).then(response => {
+     return response.json()
+   }).then(responseData => {
+     console.log(responseData)
+    setloggedInUser(responseData.user) 
+   })
+   .catch(e=> {
+     console.log('Unable to fetch user data', e);
+   })  
+   
+  },[])
   return (
     <div className="topbarContainer">
       <div className="topbarWrapper">
@@ -31,7 +52,7 @@ const Topbar = () => {
           </span>
         </div>
         <div className="topbarCenter">
-          <div className="topbarUserInfo">Hi Nadeem,</div> 
+          <div className="topbarUserInfo">Hi {loggedInUser.first_name},</div> 
           <div className="topbarDateInfo">Today, 23 Nov 2022</div> 
           <div className="topbarSettings">
             <div className="topbarIcon">
@@ -48,7 +69,7 @@ const Topbar = () => {
               />
               <div className="profile-dropdown">
                 <p className="welcome">
-                  welcome Nadeem!
+                  welcome {loggedInUser.first_name}!
                 </p>
                 <div className="menuItem">
                   <PermIdentityIcon className="topBarIcon"/>
