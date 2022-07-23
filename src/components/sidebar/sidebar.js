@@ -20,6 +20,11 @@ const Sidebar = () => {
                         Dashboard 
                       </li>
                     </Link>
+                    <Link to="/units" className="link">    
+                      <li className="sidebarListItems">
+                        <HomeOutlinedIcon className="menuIcon"/>
+                        Units</li>
+                    </Link>
                     <Link to="/reports" className="link"> 
                       <li className="sidebarListItems">
                         <SummarizeOutlinedIcon className="menuIcon" />
@@ -30,11 +35,6 @@ const Sidebar = () => {
                       <li className="sidebarListItems">
                         <FileCopyOutlinedIcon className="menuIcon"/>
                         Invoicing</li>
-                    </Link>
-                    <Link to="/units" className="link">    
-                      <li className="sidebarListItems">
-                        <HomeOutlinedIcon className="menuIcon"/>
-                        Units</li>
                     </Link>
                     <Link to="/users" className="link">    
                       <li className="sidebarListItems">

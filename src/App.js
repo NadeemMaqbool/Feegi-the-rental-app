@@ -16,21 +16,21 @@ import Signup from './pages/signup/Signup.js'
 import Login from './pages/login/login.js'
 import Reporting from './components/reporting/reporting.js'
 import AnimationLoader from './utils/loader/animationLoader.js';
+import AddUnit from './pages/unit/addUnit'
 
 function App() {
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(false);
-
   let routes;
   
   const login = useCallback((uuid, token) => {
       if (!token) {
         const storedData = localStorage.getItem('userData')
-        setToken(storedData.token)
+        setToken(()=>storedData.token)
       } else {
-        setToken(token);
+        setToken(() =>token);
         localStorage.setItem('userData', JSON.stringify({userId: uuid, token: token}));
-        setUserId(uuid);
+        setUserId(()=>uuid);
       }
   }, []);
 
@@ -47,7 +47,7 @@ function App() {
     }
   },[login])
   
-  if (token) {
+  if (token && token !== null) {
     routes = (
         <div>
           <Topbar />
@@ -56,10 +56,10 @@ function App() {
               <Routes>
                 <Route exact path="/" element={ <Content />} />
                 <Route path="/dashboard" element={ <Dashboard />} />
-                <Route path="/users" element={ <User />} />
+                <Route path="/units" element={ <AddUnit />} />
                 <Route exact path="/users/new" element={ <General /> } />
                 <Route path="/reports" element={ <Reporting /> } />
-                <Route index to="/users" element={ <User />} />
+                <Route index path="/users" element={ <User />} />
             </Routes>
           </div>
         </div>

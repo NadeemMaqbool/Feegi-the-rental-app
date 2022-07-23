@@ -7,15 +7,16 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { AuthContext } from '../../context/auth-context'
+import moment from 'moment'
+
 
 import { Link, useNavigate } from 'react-router-dom'
-import { SimpleConsoleLogger } from 'typeorm';
 
 const Topbar = () => {
-  const [loggedInUser, setloggedInUser] = useState(false)
-
+  const [loggedInUser, setLoggedInUser] = useState(false)
   const context = useContext(AuthContext)
-  
+
+  const todaysDate = moment().format('MMMM Do YYYY');;
   let navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -24,22 +25,28 @@ const Topbar = () => {
   }
 
   useEffect( () =>{
-    fetch('http://localhost:5000/api/users/'+context.userId , {
-      method: 'GET',
-      headers: {
-        Authentication: 'Bearer ' + context.token
-      }
-   }).then(response => {
-     return response.json()
-   }).then(responseData => {
-     console.log(responseData)
-    setloggedInUser(responseData.user) 
-   })
-   .catch(e=> {
-     console.log('Unable to fetch user data', e);
-   })  
+    const fetchUser = () => {
+      fetch('http://localhost:5000/api/users/'+context.userId , {
+          method: 'GET',
+          headers: {
+            Authentication: 'Bearer ' + context.token
+          }
+      }).then(response => {
+        return response.json()
+      }).then(responseData => {
+        setLoggedInUser(() => responseData.user) 
+      })
+      .catch(e=> {
+        console.error('Unable to fetch user data ', e);
+      })
+    }
+    
+    fetchUser();
+    return (() => {
+      setLoggedInUser(() =>false)
+    })
    
-  },[])
+  },[context]);
   return (
     <div className="topbarContainer">
       <div className="topbarWrapper">
@@ -52,8 +59,8 @@ const Topbar = () => {
           </span>
         </div>
         <div className="topbarCenter">
-          <div className="topbarUserInfo">Hi {loggedInUser.first_name},</div> 
-          <div className="topbarDateInfo">Today, 23 Nov 2022</div> 
+          <div className="topbarUserInfo">Hi {loggedInUser?.first_name},</div> 
+          <div className="topbarDateInfo">Today, {todaysDate}</div> 
           <div className="topbarSettings">
             <div className="topbarIcon">
               <LanguageOutlinedIcon />
@@ -69,19 +76,19 @@ const Topbar = () => {
               />
               <div className="profile-dropdown">
                 <p className="welcome">
-                  welcome {loggedInUser.first_name}!
+                  welcome {loggedInUser?.first_name}!
                 </p>
                 <div className="menuItem">
                   <PermIdentityIcon className="topBarIcon"/>
-                  <a>Profile</a>
+                  <button href="#">Profile</button>
                 </div>
                 <div className="menuItem">
                   <SettingsOutlinedIcon className="topBarIcon" />
-                  <a>Settings</a>
+                  <button href="#">Settings</button>
                 </div>
                 <div className="menuItem">
                   <LogoutOutlinedIcon className="topBarIcon"/>
-                  <a onClick={() =>logoutHandler()}>Logout</a>
+                  <button href="#" onClick={() =>logoutHandler()}>Logout</button>
                 </div>
                 
               </div> 

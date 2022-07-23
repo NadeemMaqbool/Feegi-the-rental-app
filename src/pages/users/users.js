@@ -1,4 +1,3 @@
-import React from 'react'
 import './user.css'
 import { DataGrid } from '@mui/x-data-grid';
 import {columns, rows} from '../../utils/users-list'
@@ -21,14 +20,14 @@ const User = () => {
             </button>
           </div>
           <div className="userWrapper" style={{ height: '92%', width: '100%' }}>
-            <DataGrid
+            {/* <DataGrid
               rows={rows}
               columns={columns}
               pageSize={12}
               checkboxSelection
               rowsPerPageOptions={[10]}
               pagination
-            />
+            /> */}
           </div>
         </div>
     </div>
