@@ -9,7 +9,8 @@
     padding: 0px 0px;
     width:120px;
     margin-left:10px;
-    color: var(--menu-item-color)
+    color: var(--menu-item-color);
+    font-size: 0.9rem;
 }
 
 .row-group-checkbox-input {

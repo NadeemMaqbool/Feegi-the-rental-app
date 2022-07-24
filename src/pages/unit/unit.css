@@ -17,10 +17,10 @@
 
 .wrapper h2 {
     margin-left:20px;
-    font-size:20px;
-    font-weight:400;
+    font-size:24px;
+    font-weight:500;
     width: 95%;
-    text-align: center;
+    margin-left:30px;
 }
 .section {
     padding: 10px 10px;
@@ -52,7 +52,7 @@
 .textFieldInput {
     width: 20rem;
     height: 30px;
-    font-size:16px;
+    font-size:14px;
     color: var(--light-black);
     padding:2px 10px;
     border-radius: 5px;
@@ -60,7 +60,7 @@
 }
 .textFieldLabel {
     padding: 5px 1px;
-    font-size:18px;
+    font-size: 0.9rem;
     color: var(--menu-item-color);
 }
 
@@ -79,7 +79,7 @@
 
 .textAreaInput {
     width: 300px;
-    font-size:16px;
+    font-size:14px;
     color: var(--light-black);
     padding:2px;
     border-radius: 5px;
@@ -93,7 +93,7 @@
 .selectOptionField{
     width: 300px;
     height: 40px;
-    font-size:16px;
+    font-size:0.8rem;
     color: var(--light-black);
     padding:2px;
     border-radius: 5px;
@@ -110,7 +110,21 @@
     font-size:20px;
 }
 
-.textFieldInput:focus, .selectOptionField:focus, textAreaInput:focus {
+.textFieldInputRange {
+    width: 10rem;
+    height: 30px;
+    font-size:14px;
+    color: var(--light-black);
+    padding:2px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--text-field-border-color)
+}
+
+.margin-input {
+    margin-top:19px;
+}
+
+.textFieldInput:focus, .selectOptionField:focus, .textAreaInput:focus, .textFieldInputRange:focus {
     outline: none !important;
     border: var(--menu-item-color);
     box-shadow: 0 0 5px #1B59E6;

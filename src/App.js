@@ -1,5 +1,4 @@
 import './App.css';
-import { useState, useCallback, useEffect } from 'react';
 import { AuthContext } from './context/auth-context';
 import {
   BrowserRouter as Router,
@@ -17,37 +16,15 @@ import Login from './pages/login/login.js'
 import Reporting from './components/reporting/reporting.js'
 import AnimationLoader from './utils/loader/animationLoader.js';
 import AddUnit from './pages/unit/addUnit'
+import {useAuth} from './utils/hooks/useAuth'
+import NotFound from './pages/Errors/notFound'
 
 function App() {
-  const [token, setToken] = useState(null);
-  const [userId, setUserId] = useState(false);
+  
+  const {token, login, logout, userId} = useAuth()
   let routes;
   
-  const login = useCallback((uuid, token) => {
-      if (!token) {
-        const storedData = localStorage.getItem('userData')
-        setToken(()=>storedData.token)
-      } else {
-        setToken(() =>token);
-        localStorage.setItem('userData', JSON.stringify({userId: uuid, token: token}));
-        setUserId(()=>uuid);
-      }
-  }, []);
-
-  const logout = useCallback(() => {
-    setToken(null);
-    setUserId(null);
-    localStorage.removeItem('userData')
-  }, []);
-
-  useEffect(() => {
-    const storedData = JSON.parse(localStorage.getItem('userData'))
-    if (storedData) {
-      login(storedData.userId, storedData.token)
-    }
-  },[login])
-  
-  if (token && token !== null) {
+  if (token) {
     routes = (
         <div>
           <Topbar />
@@ -72,6 +49,7 @@ function App() {
           <Route exact path="/login" element={ <Login />} />
           <Route exact path="/animate" element={ <AnimationLoader />} />
           <Route index to="/login" element={ <Login />} />
+          <Route path="*" element={ <NotFound />} />
         </Routes>
       </div>
     )

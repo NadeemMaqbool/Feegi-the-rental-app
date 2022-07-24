@@ -80,15 +80,15 @@ const Topbar = () => {
                 </p>
                 <div className="menuItem">
                   <PermIdentityIcon className="topBarIcon"/>
-                  <button href="#">Profile</button>
+                  <a href="#">Profile</a>
                 </div>
                 <div className="menuItem">
                   <SettingsOutlinedIcon className="topBarIcon" />
-                  <button href="#">Settings</button>
+                  <a href="#">Settings</a>
                 </div>
                 <div className="menuItem">
                   <LogoutOutlinedIcon className="topBarIcon"/>
-                  <button href="#" onClick={() =>logoutHandler()}>Logout</button>
+                  <a href="#" onClick={() =>logoutHandler()}>Logout</a>
                 </div>
                 
               </div> 

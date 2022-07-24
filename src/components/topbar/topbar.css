@@ -86,6 +86,7 @@
     border-radius: 5px;
     -webkit-box-shadow: 2px 6px 22px -7px rgba(0,0,0,0.84); 
     box-shadow: 2px 6px 22px -7px rgba(0,0,0,0.84);
+    padding:10px
   }
   
 .profile-dropdown a {
@@ -95,7 +96,7 @@
     display: flex;
     align-items: center;
     text-align:left;
-    font-size: 15px;
+    font-size: 0.8rem;
     font-weight: 400;
 }
   

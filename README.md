@@ -16,6 +16,5 @@ Unit:
 - state [liveable, average, good, new]
 - utilities range[summer-winter]
 
-- Fix Login issues first
+
 - Add table in UI (custom table at the moment)
-- Fix topbar dropbown

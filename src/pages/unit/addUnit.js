@@ -50,30 +50,24 @@ const addUnit = () => {
                 </div>
                 <div className="rowGroup">
                   <div className="rowItem">
-                    <label htmlFor="" className="textFieldLabel">Building Name</label>
-                    <input type="text" className="textFieldInput"/>
-                  </div>
-                  <div className="rowItem">
                     <label htmlFor="" className="textFieldLabel">Total Rooms</label>
-                    <input type="number" className="textFieldInput"/>
+                    <input type="number" className="textFieldInputRange"/>
                   </div>
-                </div>
 
-                <div className="rowGroup">
                   <div className="rowItem">
                     <label htmlFor="" className="textFieldLabel">No. of Bedrooms</label>
-                    <input type="text" className="textFieldInput"/>
+                    <input type="number" className="textFieldInputRange"/>
                   </div>
                   <div className="rowItem">
                     <label htmlFor="" className="textFieldLabel">Floor Number</label>
-                    <input type="text" className="textFieldInput"/>
+                    <input type="number" className="textFieldInputRange"/>
                   </div>
                 </div>
 
                 <div className="rowGroup">
                   <div className="rowItem">
                     <label htmlFor="" className="textFieldLabel">Total Floor</label>
-                    <input type="text" className="textFieldInput"/>
+                    <input type="number" className="textFieldInput"/>
                   </div>
                   <div className="rowItem">
                     <label htmlFor="" className="textFieldLabel">Unit Condition</label>
@@ -84,6 +78,16 @@ const addUnit = () => {
                       <option value="3">Good</option>
                       <option value="3">Excellent</option>
                     </select>
+                  </div>
+                </div>
+                <div className="rowGroup">
+                  <div className="rowItem">
+                    <label htmlFor="" className="textFieldLabel">Utility Range</label>
+                    <input type="number" placeholder="min value" min="0" className="textFieldInputRange"/>
+                  </div>
+                  <div className="rowItem">
+                    <label htmlFor="" className="textFieldLabel"></label>
+                    <input type="number" placeholder="max value" min="0" className="textFieldInputRange margin-input"/>
                   </div>
                 </div>
               </div>
